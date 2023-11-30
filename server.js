@@ -14,8 +14,8 @@ app.use(cors());
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: process.env.EMAIL,
-    pass: process.env.PASSWORD,
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
   },
 });
 
@@ -23,7 +23,7 @@ app.post("/send", (req, res) => {
   const { fname, lname, phone, email, company, enquiry } = req.body;
 
   const mailOptions = {
-    from: process.env.EMAIL,
+    from: process.env.EMAIL_USER,
     to: process.env.RECIPIENT_EMAIL,
     subject: "New Contact Form Submission",
     html: `
