@@ -105,7 +105,6 @@ const Form = () => {
     <section className="w-full h-full">
       <div className="w-full h-full flex items-center justify-center p-5 md:p-20">
         <form
-          action="contact-form"
           onSubmit={submitEmail}
           className="w-full h-full flex flex-col px-5 py-10 bg-blue-200 gap-10 text-lg text-black font-semibold capitalize [box-shadow:1px_0px_15px_8px_rgba(0,0,0,0.15)] rounded-3xl border-2 border-primary/30 md:w-[60rem] md:px-10"
           method="POST"
