@@ -73,8 +73,8 @@ const Form = () => {
 
         const response = await axios.post(
           // "https://chemyslimiteddemo.onrender.com/send",
-          // "https://demo-contact-form.onrender.com/send",
-          "http://localhost:3001/send",
+          "https://demo-contact-form.onrender.com/send",
+          // "http://localhost:3001/send",
 
           mailerState
         );
