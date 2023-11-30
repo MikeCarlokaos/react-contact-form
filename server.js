@@ -1,6 +1,6 @@
 const express = require("express");
 const nodemailer = require("nodemailer");
-const cors = require("cors"); // Add the cors package
+const cors = require("cors");
 const dotenv = require("dotenv");
 
 dotenv.config();
@@ -10,9 +10,8 @@ const PORT = process.env.PORT || 3001;
 
 app.use(express.json());
 
-// Explicitly handle CORS
 const corsOptions = {
-  origin: "https://demo-contact-form.onrender.com", // Replace with your React app's URL
+  origin: "https://demo-contact-form.onrender.com",
   methods: "POST",
 };
 
@@ -39,7 +38,7 @@ app.post("/send", cors(corsOptions), (req, res) => {
       <p><strong>Phone Number:</strong> ${phone}</p>
       <p><strong>Email:</strong> ${email}</p>
       <p><strong>Company:</strong> ${company}</p>
-      <p><strong>Enquiry:</strong> ${enquiry}</p> <!-- Fix the variable name here -->
+      <p><strong>Enquiry:</strong> ${enquiry}</p>
     `,
   };
 
