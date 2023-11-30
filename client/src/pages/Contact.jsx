@@ -72,7 +72,7 @@ const Form = () => {
         setIsSubmitting(true);
 
         const response = await axios.post(
-          "https://demo-contact-form.onrender.com:3001/send",
+          "https://react-contact-form-jply.onrender.com/send",
           mailerState
         );
 
