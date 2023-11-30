@@ -1,6 +1,6 @@
 const express = require("express");
 const nodemailer = require("nodemailer");
-const cors = require("cors");
+const cors = require("cors"); // Add the cors package
 const dotenv = require("dotenv");
 
 dotenv.config();
@@ -9,7 +9,14 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 app.use(express.json());
-app.use(cors());
+
+// Explicitly handle CORS
+const corsOptions = {
+  origin: "https://demo-contact-form.onrender.com", // Replace with your React app's URL
+  methods: "POST",
+};
+
+app.use(cors(corsOptions));
 
 const transporter = nodemailer.createTransport({
   service: "gmail",
@@ -19,7 +26,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-app.post("/send", (req, res) => {
+app.post("/send", cors(corsOptions), (req, res) => {
   const { fname, lname, phone, email, company, enquiry } = req.body;
 
   const mailOptions = {
@@ -32,7 +39,7 @@ app.post("/send", (req, res) => {
       <p><strong>Phone Number:</strong> ${phone}</p>
       <p><strong>Email:</strong> ${email}</p>
       <p><strong>Company:</strong> ${company}</p>
-      <p><strong>Enquiry:</strong> ${enquiry}</p>
+      <p><strong>Enquiry:</strong> ${enquiry}</p> <!-- Fix the variable name here -->
     `,
   };
 
