@@ -100,7 +100,6 @@ const Form = () => {
       }
     }
   };
-
   return (
     <section className="w-full h-full">
       <div className="w-full h-full flex items-center justify-center p-5 md:p-20">
